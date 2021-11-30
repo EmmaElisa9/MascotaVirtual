@@ -96,15 +96,15 @@ async function fechaHora(){
   console.log(time);
 
   //escribe el código para mostrar el texto lastFed time aquí
-  fill(255,255,254);
-  textSize(13);
+  fill(200,20,100);
+  textSize(17);
   if(lastFed>=12) {
-    text("última hora en que se alimentó : "+time +" PM", 350,30);
+    text("última hora en que se alimentó : "+time +" PM", 300,30);
   }
   else if(lastFed===0){
-     text("última hora en que se alimentó : "+time +" PM", 350,30);
+     text("última hora en que se alimentó : "+time +" PM", 300,30);
   }
   else{
-    text("última hora en que se alimentó : "+time +" AM", 350,30);
+    text("última hora en que se alimentó : "+time +" AM", 300,30);
   }
 }
