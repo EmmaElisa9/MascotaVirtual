@@ -38,7 +38,7 @@ function setup() {
 }
 
 function draw() {
-  background(46,139,87);
+  background(100,100,250);
   foodObj.display();
 
 
@@ -48,7 +48,18 @@ function draw() {
     lastFed=data.val();
   });
 
-  fechaHora();
+  //escribe el código para mostrar el texto lastFed time aquí
+  fill(200,20,100);
+  textSize(17);
+  if(lastFed>=12) {
+    text("última hora en que se alimentó : 2 PM", 300,30);
+  }
+  else if(lastFed===0){
+     text("última hora en que se alimentó : 8 PM", 300,30);
+  }
+  else{
+    text("última hora en que se alimentó : 8 AM", 300,30);
+  }
 
 
   drawSprites();
@@ -84,27 +95,4 @@ function addFoods(){
   database.ref('/').update({
     Food:foodS
   })
-}
-
-async function fechaHora(){
-  var fechahora = await fetch("http://worldtimeapi.org/api/timezone/America/Mexico_City");
-  var FHjson = await fechahora.json();
-  console.log(FHjson);
-  var DateTime = FHjson.datetime;
-  console.log(DateTime);
-  var time = DateTime.slice(11,13);
-  console.log(time);
-
-  //escribe el código para mostrar el texto lastFed time aquí
-  fill(200,20,100);
-  textSize(17);
-  if(lastFed>=12) {
-    text("última hora en que se alimentó : "+time +" PM", 300,30);
-  }
-  else if(lastFed===0){
-     text("última hora en que se alimentó : "+time +" PM", 300,30);
-  }
-  else{
-    text("última hora en que se alimentó : "+time +" AM", 300,30);
-  }
 }
